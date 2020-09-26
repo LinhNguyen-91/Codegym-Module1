@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+    </style>
+</head>
+
+<body>
+    <form method="post" action="codegym.vn">
+        <h2>Market Research Survey</h2>
+        <p>Please take a few moments to complete this satisfaction survey</p>
+        What is your age range?<br>
+        <select>
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-50">35-50</option>
+            <option value="50+">50+</option>
+
+        </select> <br><br>
+        What is your yearly income range?<br>
+        <select>
+            <option value="dola1">$0 - $25,000</option>
+            <option value="dola2">$25,001 - $50,000</option>
+            <option value="dola3">$50,001 - $100,000</option>
+            <option value="dola4">$100,000+</option>
+        </select> <br><br>
+        Gender Identity<br>
+        <input type="radio" name="gender" value="male"> Male <br>
+        <input type="radio" name="gender" value="female"> Female <br>
+        <input type="radio" name="gender" value="nonbinary"> Nonbinary <br>
+        <input type="radio" name="gender" value="other" checked> Other <br>
+        <input type="text"><br><br>
+
+        Which of the following products have your purchased in the last 2 months. Please check all that apply.<br>
+        <input type="checkbox" name="Product 1" value="product1"> Product1<br>
+        <input type="checkbox" name="Product 2" value="product2"> Product2<br>
+        <input type="checkbox" name="Product 3" value="product3"> Product3<br><br>
+        How often would you use our new product?<br>
+        <input type="radio" name="date" value="daily"> Daily <br>
+        <input type="radio" name="date" value="weekly"> Weekly <br>
+        <input type="radio" name="date" value="monthly"> Monthly <br><br>
+        What would you pay for the new product?<br>
+        $<input type="text" placeholder="Dollars">.<input type="text" placeholder="Cents"><br> <br>
+        What features would you like tosee in the new product.<br>
+        <textarea rows="6" cols="60"></textarea><br><br>
+        Please rate your level of agreement with the following .<br><br>
+        <table>
+            <tr>
+                <td></td>
+                <th>
+                    Strongly Disagree
+                </th>
+                <th>
+                    Disagree
+                </th>
+            </tr>
+            <tr>
+                <td>Our products are priced fairly.
+
+                </td>
+                <td>
+                    <input type="radio" name="fairly" value="1">1
+                </td>
+                <td>
+                    <input type="radio" name="fairly" value="2">2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Our products are high quality.
+                </td>
+                <td>
+                    <input type="radio" name="quality" value="1">1
+                </td>
+                <td>
+                    <input type="radio" name="qualiry" value="2">2
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    You would recommend our product to afriend or coworker.
+                </td>
+                <td>
+                    <input type="radio" name="coworker" value="1">1
+                </td>
+                <td>
+                    <input type="radio" name="coworker" value="2">2
+                </td>
+            </tr>
+        </table><br><br>
+        <input type="submit" value="submit">
+
+
+
+    </form>
+</body>
+
+</html>
