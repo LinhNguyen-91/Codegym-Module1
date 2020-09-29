@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{color: chocolate;}
+        h1{color: darkblue;}
+    </style>
+</head>
+
+<body>
+    <from>
+        <h2>Caculator</h2>
+        <input type="number" id="phantu1">
+        <input type="number" id="phantu2"><br><br>
+        <button type="button" onclick="phepTinh('+')">Addition(+)</button>
+        <button type="button" onclick="phepTinh('-')">Subtraction(-)</button>
+        <button type="button" onclick="phepTinh('*')">Multiplication(X)</button>
+        <button type="button" onclick="phepTinh('/')">Division(/)</button>
+        <br><br>
+        </from>
+        <h1>Result Division:<span id="ketqua"></h1> 
+        <script>
+            function phepTinh(toanTu) {
+                var soDau = document.getElementById("phantu1").value
+                var soCuoi = document.getElementById("phantu2").value
+                var tinhTong = soDau + toanTu + soCuoi
+                var ketQua = eval(tinhTong)
+                document.getElementById("ketqua").innerHTML = ketQua
+            }
+
+        </script>
+</body>
+
+</html>
