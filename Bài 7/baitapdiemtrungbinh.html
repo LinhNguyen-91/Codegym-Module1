@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var diemVatly ;
+        var diemHoahoc ;
+        var diemSinhhoc;
+        diemVatly = +prompt("Nhập điểm Vật lý: ");
+        diemHoahoc = +prompt("Nhập điểm Hóa học");
+        diemSinhhoc = +prompt("Nhập điểm Sinh hoc");
+        console.log(diemVatly + diemHoahoc + diemSinhhoc)
+        var diemTong = diemVatly + diemHoahoc + diemSinhhoc;
+
+       document.write("Điểm tổng là: " + diemTong);
+       document.write("<br/>");
+        var diemTrungbinh = (diemVatly + diemHoahoc + diemSinhhoc)/3;
+        document.write("Điểm trung bình là: " + diemTrungbinh);
+        
+
+
+
+
+    </script>
+</body>
+</html>
