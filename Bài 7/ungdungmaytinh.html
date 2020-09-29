@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{color: red;}
+        h1{color:blue}
+    </style>
+</head>
+
+<body>
+    <from>
+        <h2>Caculator</h2>
+        <input type="number" id="phantu1">
+        <input type="number" id="phantu2"><br><br>
+        <button type="button" onclick="phepCong()">Addition(+)</button>
+        <button type="button" onclick="phepTru()">Subtraction(-)</button>
+        <button type="button" onclick="phepNhan()">Multiplication(X)</button>
+        <button type="button" onclick="phepChia()">Division(/)</button>
+        <br><br>
+        <h1 id="ketqua"></h1>
+    </from>
+    <script>
+         
+        function phepCong() {
+            var soDau =+ document.getElementById("phantu1").value
+            var soCuoi =+ document.getElementById("phantu2").value
+            var tinhTong = soDau + soCuoi
+            document.getElementById("ketqua").innerHTML = "Result Division: " + tinhTong
+        }
+        function phepTru() {
+            var soDau = document.getElementById("phantu1").value
+            var soCuoi = document.getElementById("phantu2").value
+            var tinhHieu = soDau - soCuoi
+            document.getElementById("ketqua").innerHTML = "Result Division: " + tinhHieu
+        }
+        function phepNhan() {
+            var soDau = document.getElementById("phantu1").value
+            var soCuoi = document.getElementById("phantu2").value
+            var tinhTich = soDau * soCuoi
+            document.getElementById("ketqua").innerHTML = "Result Division: " + tinhTich
+        }
+        function phepChia() {
+            var soDau = document.getElementById("phantu1").value
+            var soCuoi = document.getElementById("phantu2").value
+            var tinhThuong = soDau / soCuoi
+            document.getElementById("ketqua").innerHTML = "Result Division: " + tinhThuong
+        }
+    </script>
+</body>
+
+</html>
