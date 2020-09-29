@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{color:red}
+        h2{color: blue}
+    </style>
+</head>
+
+<body>
+    <form>
+        <h3>Amount</h3>
+        <input id="from" type="number">
+        <h3>From Currency</h3>
+        <select>
+            <option value="VietNam">Vietnam</option>
+            <option value="USD"></option>
+        </select>
+        <h3>To Currency</h3>
+        <select>
+            <option value="USD">USD</option>
+            <option value="VietNam"></option>
+        </select><br><br>
+        <button type="button" onclick="doiTiente()">Convert</button>
+        <h2 id="ketqua"></h2>
+    </form>
+    <script>
+        function doiTiente() {
+            var tienTe = document.getElementById("from").value
+            const TYGIA = 23000;
+            var doiTienusd = tienTe * TYGIA
+            document.getElementById("ketqua").innerHTML ="Result: "+ doiTienusd
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
