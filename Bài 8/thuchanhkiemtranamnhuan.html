@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    h2 {color: red;}
+    h3 {color: blue;}
+</style>
+</head>
+
+<body>
+    <h2>ỨNG DỤNG KIỂM TRA NĂM NHUẬN</h2>
+    <input id="soNam" type="number">
+    <button onclick="namNhuan()">Kiểm Tra</button>
+    <h3>Kết quả:<span id="ketqua"></span></h3>
+    <script>
+        function namNhuan() {
+            var nhapNam = document.getElementById("soNam").value;
+            if (nhapNam % 400 == 0)
+                document.getElementById("ketqua").innerHTML = "Nhuận";
+            else if (nhapNam % 100 == 0)
+                document.getElementById("ketqua").innerHTML = "Không Nhuận";
+            else if (nhapNam % 4 == 0)
+                document.getElementById("ketqua").innerHTML = "Nhuận";
+            else
+                document.getElementById("ketqua").innerHTML = "Không Nhuận";
+
+        }
+    </script>
+</body>
+
+</html>
