@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 100%;
+        }
+
+        table {
+            border: black solid 1px
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th colspan="4">
+                <input id="dulieu" type="text">
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="nhapDulieu('1')">1</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu(2)">2</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu(3)">3</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu('+')">+</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="nhapDulieu(4)">4</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu(5)">5</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu(6)">6</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu('-')">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="nhapDulieu(7)">7</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu(8)">8</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu(9)">9</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu('*')">X</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick=" xoa()">C</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu(0)">0</button>
+            </td>
+            <td>
+                <button onclick=" xuLyPhepTinh()">=</button>
+            </td>
+            <td>
+                <button onclick="nhapDulieu('/')">/</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        // Xử lý khi một ký tự được nhập: 
+        // Khi một ký tự được nhập, thêm kí tự đó vào cuối chuỗi phép tính
+        // và in ra màn hình
+        function nhapDulieu(kiTu) {
+            // Lấy chuỗi phép tính hiện tại
+            var chuoiPhepTinh =
+                document.getElementById("dulieu").value;
+            // Thêm ký tự vừa nhập vào cuối chuỗi phép tính hiện tại
+            chuoiPhepTinh += kiTu
+            // In ra màn hình
+            document.getElementById("dulieu").value = chuoiPhepTinh
+        }
+
+        // Xử lý tính toán và in ra màn hình
+        function xuLyPhepTinh() {
+            // B1: Xử lý tính toán
+            var chuoiPhepTinh =
+                document.getElementById("dulieu").value;
+
+            var ketQua = eval(chuoiPhepTinh);
+
+            // B2: In ra màn hình
+            document.getElementById("dulieu").value = ketQua
+        }
+
+        // Xóa phép tính đã nhập
+        function xoa() {
+            document.getElementById("dulieu").value = ""
+        }
+    </script>
+</body>
+
+</html>
