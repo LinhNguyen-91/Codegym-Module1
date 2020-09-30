@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h2>KIỂM TRA A CÓ CHIA HẾT CHO B?</h2>
+        Nhập vào số a: <input id="soa" type="number"><br><br>
+        Nhập vào số b:<input id="sob" type="number"><br><br>
+        <button type="button" onclick="soSanh()">Kiểm Tra</button>
+        <h3>Kết quả: <span id="ketqua"></span></h3>
+    </form>
+    <script>
+        function soSanh() {
+            var soA = document.getElementById("soa").value;
+            var soB = document.getElementById("sob").value;
+            if (soA % soB == 0)
+                document.getElementById("ketqua").innerHTML = "Chia hết";
+            else
+                document.getElementById("ketqua").innerHTML = "Không chia hết";
+        }
+    </script>
+
+</body>
+
+</html>
