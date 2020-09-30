@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    h2 {color: blue;}
+    h3{color:brown}
+</style>>    
+</head>
+
+<body>
+    <h2>TÍNH CHỈ SỐ BMI CỦA CƠ THỂ</h2>
+    <from>
+        Nhập cân nặng:
+        <input id="cannang" type="number"> kg<br><br>
+        Nhập chiều cao:
+        <input id="chieucao" type="number"> m<br><br>
+        <button type="button" onclick="phepTinh()">Kiểm Tra</button>
+        <h3>Kết quả BMI là: <span id="ketqua"></span></h3>
+    </from>
+    <script>
+        function phepTinh() {
+            var canNang = document.getElementById("cannang").value;
+            var chieuCao = document.getElementById("chieucao").value;
+            var chiSo = canNang /(chieuCao*chieuCao)
+            if (chiSo < 18.5)
+                document.getElementById("ketqua").innerHTML = chiSo +"</br>" +"</br>" + "Bạn Thiếu Cân!";
+            else if (chiSo < 25.0)
+                document.getElementById("ketqua").innerHTML = chiSo +"</br>"+"</br>"  + "Bạn Bình Thường!";
+            else if (chiSo < 30.0)
+                document.getElementById("ketqua").innerHTML = chiSo + "</br>" +"</br>" + "Bạn Thừa Cân!";
+            else
+                document.getElementById("ketqua").innerHTML = chiSo + "</br>"+"</br>"  +"Bạn Béo Phì!";
+
+        }
+    </script>
+
+</body>
+
+</html>
