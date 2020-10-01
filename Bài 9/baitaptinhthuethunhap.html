@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            color: red;
+        }
+
+        h3 {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <from>
+        <h2>TÍNH THUẾ THU NHẬP CÁ NHÂN</h2>
+        Nhập thu nhập:
+        <input id="thunhap" type="number">.triệu đồng<br><br>
+        <button onclick="tinhThue()"> Tính thuế</button>
+        <h3>Kết quả : <span id="ketqua"></span> triệu đồng</h3>
+    </from>
+    <script>
+        function tinhThue() {
+            var tienLuong = +document.getElementById("thunhap").value
+            var tienThue = null
+
+            if (tienLuong >= 15) 
+                tienThue = (tienLuong * 30) / 100;
+            else if (tienLuong >= 10) 
+                tienThue = (tienLuong * 20) / 100;
+            else if (tienLuong >= 7) 
+                tienThue = (tienLuong * 10) / 100;
+            else 
+                tienThue = 0;
+
+            document.getElementById("ketqua").innerHTML=tienThue
+        }
+        
+        
+
+    </script>
+</body>
+
+</html>
