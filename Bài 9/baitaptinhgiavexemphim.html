@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{color:blue;}
+        h2{color: red;}
+        h3{color: orange;}
+        h4{color: darkgoldenrod;}
+    </style>
+</head>
+
+<body>
+    <from>
+        <h1>MUA VÉ XEM PHIM</h1>
+        <table>
+            <tr>
+                <td>Giá vé: </td>
+                <td><input id="giave" type="number">VND</td>
+            </tr>
+            <tr>
+                <td> Sô lượng người lớn:</td>
+                <td><input id="nguoilon" type="number"></td>
+            </tr>
+            <tr>
+                <td>Số lượng trẻ em: </td>
+                <td><input id="treem" type="number"></td>
+            </tr>
+        </table><br>
+        <button onclick="giamGia()"> Mua Ngay</button>
+        <h4> Tổng tiền : <span id="tongtien"></span> VND</h4>
+        <h3>Được giảm: <span id="duocgiam"></span> VND</h3>
+        <h2>Số tiền thanh toán: <span id="thanhtoan"></span> VND</h2>
+    </from>
+    <script>
+        function giamGia() {
+            var giaVe = +document.getElementById("giave").value;
+            var nguoiLon =+document.getElementById("nguoilon").value;
+            var treEm = +document.getElementById("treem").value ;
+            var giaNguoiLon = nguoiLon * giaVe;
+            var giaTreEm = treEm* giaVe / 2;
+            var soLuong = nguoiLon + treEm;
+            var tongTien = giaNguoiLon + giaTreEm;
+            var duocGiam = null;
+
+            if (soLuong >2) {
+                duocGiam = (tongTien *20) / 100;
+            } else if (soLuong ==2) {
+                duocGiam = (tongTien * 10) / 100;
+            } else
+                duocGiam = 0
+
+        document.getElementById("tongtien").innerHTML = tongTien;
+        document.getElementById("duocgiam").innerHTML = duocGiam;
+        document.getElementById("thanhtoan").innerHTML = tongTien - duocGiam;
+        }
+    </script>
+</body>
+
+</html>
