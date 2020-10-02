@@ -45,11 +45,12 @@
             var soLuong = nguoiLon + treEm;
             var tongTien = giaNguoiLon + giaTreEm;
             var duocGiam = null;
+            var tiLe = tongTien/100;
 
             if (soLuong >2) {
-                duocGiam = (tongTien *20) / 100;
+                duocGiam =tiLe *20 ;
             } else if (soLuong ==2) {
-                duocGiam = (tongTien * 10) / 100;
+                duocGiam = tiLe * 10 ;
             } else
                 duocGiam = 0
 
