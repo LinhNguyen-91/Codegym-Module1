@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 20px;
+        }
+        h2{ color: blue;}
+        h3{ color: red;}
+    </style>
+</head>
+
+<body>
+    <h2>GIẢI PHƯƠNG TRÌNH BẬC HAI</h2>
+    <form>
+        <input id="nhapa" type="text">x <sup>2</sup> +
+        <input id="nhapb" type="text">x +
+        <input id="nhapc" type="text"> = 0<br><br>
+        <button type="button" onclick="giaiPT()">Giải PT</button>
+        <input type="reset" style="width: 60px;">
+    </form>
+    <h3 id="ketqua"></h3>
+    <script>
+        function giaiPT() {
+            var nhapSoa = +document.getElementById("nhapa").value;
+            var nhapSob = +document.getElementById("nhapb").value;
+            var nhapSoc = +document.getElementById("nhapc").value;
+            const DETAL = (nhapSob * nhapSob) - (4 * nhapSoa * nhapSoc);
+            var nghiemPhanBieta = (-nhapSob + Math.sqrt(DETAL)) / (2 * nhapSoa);
+            var nghienPhanBietb = (-nhapSob - Math.sqrt(DETAL)) / (2 * nhapSoa);
+            var nghiemKep = -nhapSob / 2 * nhapSoa;
+            var nghiemRieng = -nhapSoc / nhapSob;
+            var ketQua = null
+
+            if (nhapSoa == 0) {
+                if (nhapSob == 0)
+                    if (nhapSoc == 0)
+                        ketQua = "PT vô số nghiệm";
+                    else
+                        ketQua = "PT vô nghiệm";
+                else
+                    ketQua = "PT có nghiệm kép: " + "</br>" + "x = " + nghiemRieng;
+            } else {
+                if (DETAL < 0)
+                    ketQua = "PT vô nghiệm";
+                else {
+                    if (DETAL > 0)
+                        ketQua = "PT có hai nghiệm phân biệt: " + "</br>" + "x<sub>1</sub> = " + nghiemPhanBieta + "</br>"
+                            + "x<sub>2</sub> = " + nghienPhanBietb;
+                    else
+                        ketQua = "PT có nghiệm kép: x = " + nghiemKep;
+                }
+            }
+
+            document.getElementById("ketqua").innerHTML = ketQua;
+        }
+    </script>
+</body>
+
+</html>
