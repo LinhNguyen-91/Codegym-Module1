@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h2 { color: blue;}
-        h3 {color: red;}
+        h2 {
+            color: blue;
+        }
+
+        h3 {
+            color: red;
+        }
     </style>
 </head>
 
@@ -16,28 +21,49 @@
         <h2>ỨNG DỤNG TÍNH GIÁ ĐIỆN</h2>
         Nhập số chữ:
         <input id="sochu" type="number"><br> <br>
-        <button type="button" onclick="soTien()">Thành Tiền</button>
+        <button type="button" onclick="tongTien()">Thành Tiền</button>
         <input type="reset">
-<h3> Thành tiền: <span id = "thanhtien"></span> VND</h3>
+        <h3> Thành tiền: <span id="thanhtien"></span> VND</h3>
     </form>
     <script>
-        function soTien() {
+        function tongTien() {
             var soChu = +document.getElementById("sochu").value;
-            var tongTien;
-            if (soChu > 401)
-                tongTien = soChu * 2927;
-            else if (soChu >301)
-                tongTien = soChu * 2834;
-            else if (soChu > 201)
-                tongTien = soChu * 2536;
-            else if (soChu > 101)
-                tongTien = soChu * 2014
-            else if (soChu > 51)
-                tongTien = soChu * 1734;
-            else
-                tongTien = soChu * 1678;
-                document.getElementById("thanhtien").innerHTML=tongTien
+            const BAC1 = 0;
+            const BAC2 = 50;
+            const BAC3 = 100;
+            const BAC4 = 200;
+            const BAC5 = 300;
+            const BAC6 = 400;
+            const TIEN1 = 1678;
+            const TIEN2 = 1734;
+            const TIEN3 = 2014;
+            const TIEN4 = 2536;
+            const TIEN5 = 2834;
+            const TIEN6 = 2927;
+            var thanhTien = 0;
+            
+            if (soChu > BAC6){
+                thanhTien += (soChu - BAC6) * TIEN6;
+                soChu = soChu - (soChu - BAC6);
+            }if (soChu > BAC5){
+                thanhTien += (soChu - BAC5) * TIEN5;
+                soChu = soChu - (soChu - BAC5);
+            }if (soChu > BAC4){
+                thanhTien += (soChu - BAC4) * TIEN4;
+                soChu = soChu - (soChu - BAC4);
+            }if (soChu > BAC3){
+                thanhTien += (soChu - BAC3) * TIEN3;
+                soChu = soChu - (soChu - BAC3);
+            }if (soChu > BAC2){
+                thanhTien += (soChu - BAC2) * TIEN2;
+                soChu = soChu - (soChu -BAC2);
+            }if (soChu > BAC1)
+            thanhTien += (soChu - BAC1) * TIEN1; 
+            
+            document.getElementById("thanhtien").innerHTML =  thanhTien;
         }
+
+
     </script>
 </body>
 
