@@ -59,8 +59,8 @@
                 soChu = soChu - (soChu -BAC2);
             }if (soChu > BAC1)
             thanhTien += (soChu - BAC1) * TIEN1; 
-            
-            document.getElementById("thanhtien").innerHTML =  thanhTien;
+
+            document.getElementById("thanhtien").innerHTML =  thanhTien.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
         }
 
 
