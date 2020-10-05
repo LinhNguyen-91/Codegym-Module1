@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 { color: blue;}
+        h3 {color: red;}
+    </style>
+</head>
+
+<body>
+    <form>
+        <h2>ỨNG DỤNG TÍNH GIÁ ĐIỆN</h2>
+        Nhập số chữ:
+        <input id="sochu" type="number"><br> <br>
+        <button type="button" onclick="soTien()">Thành Tiền</button>
+        <input type="reset">
+<h3> Thành tiền: <span id = "thanhtien"></span> VND</h3>
+    </form>
+    <script>
+        function soTien() {
+            var soChu = +document.getElementById("sochu").value;
+            var tongTien;
+            if (soChu > 401)
+                tongTien = soChu * 2927;
+            else if (soChu >301)
+                tongTien = soChu * 2834;
+            else if (soChu > 201)
+                tongTien = soChu * 2536;
+            else if (soChu > 101)
+                tongTien = soChu * 2014
+            else if (soChu > 51)
+                tongTien = soChu * 1734;
+            else
+                tongTien = soChu * 1678;
+                document.getElementById("thanhtien").innerHTML=tongTien
+        }
+    </script>
+</body>
+
+</html>
