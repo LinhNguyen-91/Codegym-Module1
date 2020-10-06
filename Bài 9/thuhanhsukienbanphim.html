@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="gaiNhay()">
+    <img id="gai" on="" src="pictures/gai.png" style="position:absolute;left:0; bottom:0;" height="100" width="200" />
+
+   <script>
+
+        function gaiNhay() {
+
+            window.addEventListener("keydown", dieuKhien);
+        }
+        function quaTrai() {
+            var gai = document.getElementById("gai");
+
+            gai.style.left = parseInt(gai.style.left) - 10 + 'px';
+        }
+
+        function quaPhai() {
+            var gai = document.getElementById("gai");
+            gai.style.left = parseInt(gai.style.left) + 10 + 'px';
+
+        }
+
+        function dieuKhien(evt) {
+            switch (evt.keyCode) {
+                case 39:
+                    {
+                        quaPhai();
+                        break;
+                    }
+                case 37:
+                    {
+                        quaTrai();
+                        break;
+                    }
+
+                default:
+                    {
+                        window.alert("sử dụng phím mũi tên qua trái phải để điều khiển.")
+                    }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
