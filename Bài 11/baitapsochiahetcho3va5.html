@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var n;
+        var ketQua;
+
+        for (n = 1; n <= 100; n++) {
+            if (n % 3 == 0 && n % 5 == 0)
+                ketQua = 'FizzBuzz'
+            else if (n % 5 == 0)
+                ketQua = 'Buzz';
+            else if (n % 3 == 0)
+                ketQua = 'Fizz';
+            else
+                ketQua = n ;
+
+            document.write(ketQua + '<br>');
+        }
+
+    </script>
+</body>
+
+</html>

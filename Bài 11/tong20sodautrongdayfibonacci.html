@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         var i = -1;
         var j = 1;
-        var dem=1 ;
-
-        while(dem<=20){
-        var tong = i + j; 
-        document.write(tong + '<br>')
-        i = j;
-        j = tong;
-        dem++;
+        var dem = 1;
+        var tong = 0;
+        while (dem <= 20) {
+            var t = i + j;
+            tong = tong + t
+            i = j;
+            j = t;
+            dem++;
         }
+        document.write(tong)
     </script>
 </body>
+
 </html>
