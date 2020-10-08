@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+    <h3>TÍNH GIAI THỪA MỘT SỐ NGUYÊN DƯƠNG</h3>
+    <input type="text" name="number" id="number">
+    <button type="button" onclick="tinhGiaithua()">Tính</button>
+    <input type="reset">
+    <h3 id="ketqua"></h3>
+    </form>
+    <script>
+        function tinhGiaithua() {
+            var nhapSo = +document.getElementById("number").value;
+            var i;
+            var giaiThua = 1;
+
+            for (i = 1; i <= nhapSo; i++) {
+                giaiThua = giaiThua * i;
+            }
+
+            document.getElementById("ketqua").innerHTML = giaiThua
+        }
+    </script>
+</body>
+
+</html>
