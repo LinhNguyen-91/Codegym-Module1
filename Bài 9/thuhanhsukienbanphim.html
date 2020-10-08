@@ -9,8 +9,23 @@
 
 <body onload="gaiNhay()">
     <img id="gai" on="" src="pictures/gai.png" style="position:absolute;left:0; bottom:0;" height="100" width="200" />
+    <img id="bong" on="" src="pictures/bong.png" style="position:absolute;left:0; top:0;" height="70" width="50" />
 
    <script>
+        // setInterval(Func, Tick)
+        
+        setInterval(function() {
+            const bong = document.getElementById("bong")
+
+            var top = bong.style.top
+
+            top = +top.replace("px", "")
+
+            top += 10
+            top = top + "px"
+
+            bong.style.top = top;
+        }, 500)
 
         function gaiNhay() {
 
