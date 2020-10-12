@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3 {color:red;}
+        th {color: blue;}
+    </style>
+</head>
+
+<body>
+    <form>
+        <h3>ỨNG DỤNG TÍNH LÃI SUẤT NGÂN HÀNG</h3>
+        <table>
+            <tr>
+                <th>Nhập số tiền : </th>
+                <td><input id="tienvay" type="number"> VND</td>
+            </tr>
+            <tr>
+                <th>Số tháng cho vay :</th>
+                <td> <input id="sothang" type="number">  </td>
+            </tr>
+            <tr>
+                <th> Lãi suất cho vay :</th>
+                <td><input id="laisuat" type="number"> %/Năm </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="button" onclick="tinhLai()">Tính lãi</button>
+                    <input type="reset">
+                </td>
+            </tr>
+        </table>
+        <h3>Tổng lãi phải trả là : <span id="ketqua"></span> </h3>
+    </form>
+    <script>
+        function tinhLai() {
+            var tienVay = +document.getElementById("tienvay").value;
+            var soThang = +document.getElementById("sothang").value;
+            var laiSuat = +document.getElementById("laisuat").value;
+            var laiThang = 0;
+            var tongLai = 0;
+
+            for (var i = 1; i <= soThang; i++) {
+                laiThang = tienVay * (laiSuat / (100 * 12));
+                tongLai = tongLai + laiThang;
+                tienVay = tienVay + laiThang;
+            }
+
+            document.getElementById("ketqua").innerHTML = tongLai .toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        }
+
+    </script>
+</body>
+
+</html>
