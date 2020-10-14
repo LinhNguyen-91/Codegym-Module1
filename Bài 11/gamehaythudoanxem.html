@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <button type="button" onclick="troChoi()"> Chơi</button>
+        <input type="reset" value="Chơi lại">
+    </form>
+    <script>
+        function troChoi() {
+            var nhapSoDau = +prompt("Hãy nhập khoảng từ : ");
+            var nhapSoCuoi = +prompt("đến :");
+            var soChon = Math.floor(Math.random() * (nhapSoCuoi - nhapSoDau) + nhapSoDau);
+            var soDoan = +prompt("Nhập số bạn đoán : ")
+            var ketQua = null;
+            var i = 0;
+
+            do {
+                i++
+                if (soDoan > soChon) {
+                    soDoan = +prompt("Hãy đoán số nhỏ hơn!");
+                    ketQua = 'Bạn đã đoán sai, số đó là ' + soChon;
+                } else if (soDoan < soChon) {
+                    soDoan = +prompt("Hãy đoán số lớn hơn!");
+                    ketQua = 'Bạn đã đoán sai, số đó là ' + soChon;
+                } else
+                    ketQua = 'Xin chúc mừng bạn đã đoán đúng!';
+            } while (i <= 1)
+
+            document.write(ketQua);
+        }
+
+
+    </script>
+</body>
+
+</html>
