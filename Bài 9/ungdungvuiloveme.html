@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #khong {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h2>Do you love me?</h2>
+    <button type="button" onclick="dongY()">Yes</button>
+    <button id = "khong" type="button"  onmouseover="diChuot()">No</button>
+
+</body>
+<script>
+    function dongY(){
+        alert ("Yes. you are right ")
+    }
+    function diChuot(){
+
+        var x = Math.floor(Math.random()*window.innerWidth)
+        var y = Math.floor(Math.random()*window.innerHeight)
+
+        if(y > window.innerHeight - 68) {
+            y = window.innerHeight - 68
+        }
+        var  chuot = document.getElementById("khong");
+
+        chuot.style.left = x + "px";
+        chuot.style.top = y + "px";
+
+        console.log(y)
+    }
+</script>
+</html>
