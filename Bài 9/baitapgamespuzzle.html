@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* CSS Selector */
+        img {
+            display: block;
+            width: 500px;
+            height: 150px;
+            margin-bottom: 8px;
+        }
+
+        form.success img {
+            box-shadow: 0px 1px 2px red;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="khung">
+        <img id="hinh1" src="pictures/anhgau/hinh1.jpg" onclick="doiHinh1()">
+        <img id="hinh2" src="pictures/anhgau/hinh2.jpg" onclick="doiHinh2()">
+        <img id="hinh3" src="pictures/anhgau/hinh3.jpg" onclick="doiHinh3()">
+        <img id="hinh4" src="pictures/anhgau/hinh4.jpg" onclick="doiHinh4()">
+        <img id="hinh5" src="pictures/anhgau/hinh5.jpg" onclick="doiHinh5()">
+    </form>
+    <script>
+        const ANH_MEO = "anhmeo"
+        const ANH_GAU = "anhgau"
+        const ANH_KHI = "anhkhi"
+
+        function doiHinh1() {
+            var duongDanAnh1 = document.getElementById("hinh1").src;
+            var duongDanAnhMoi1;
+
+            if (duongDanAnh1.includes(ANH_GAU)) {
+                duongDanAnhMoi1 = duongDanAnh1.replace(ANH_GAU, ANH_MEO)
+            } else if (duongDanAnh1.includes(ANH_MEO)) {
+                duongDanAnhMoi1 = duongDanAnh1.replace(ANH_MEO, ANH_KHI)
+            } else {
+                duongDanAnhMoi1 = duongDanAnh1.replace(ANH_KHI, ANH_GAU)
+            }
+
+
+            document.getElementById("hinh1").src = duongDanAnhMoi1
+
+            kiemTra();
+        }
+
+        function doiHinh2() {
+            var duongDanAnh2 = document.getElementById("hinh2").src;
+            var duongDanAnhMoi2;
+
+            if (duongDanAnh2.includes(ANH_GAU)) {
+                duongDanAnhMoi2 = duongDanAnh2.replace(ANH_GAU, ANH_MEO)
+            } else if (duongDanAnh2.includes(ANH_MEO)) {
+                duongDanAnhMoi2 = duongDanAnh2.replace(ANH_MEO, ANH_KHI)
+            } else {
+                duongDanAnhMoi2 = duongDanAnh2.replace(ANH_KHI, ANH_GAU)
+            }
+
+            document.getElementById("hinh2").src = duongDanAnhMoi2
+
+            kiemTra();
+        }
+
+        function doiHinh3() {
+            var duongDanAnh3 = document.getElementById("hinh3").src;
+            var duongDanAnhMoi3;
+
+            if (duongDanAnh3.includes(ANH_GAU)) {
+                duongDanAnhMoi3 = duongDanAnh3.replace(ANH_GAU, ANH_MEO)
+            } else if (duongDanAnh3.includes(ANH_MEO)) {
+                duongDanAnhMoi3 = duongDanAnh3.replace(ANH_MEO, ANH_KHI)
+            } else {
+                duongDanAnhMoi3 = duongDanAnh3.replace(ANH_KHI, ANH_GAU)
+            }
+            document.getElementById("hinh3").src = duongDanAnhMoi3
+
+            kiemTra();
+        }
+
+        function doiHinh4() {
+            var duongDanAnh4 = document.getElementById("hinh4").src;
+            var duongDanAnhMoi4;
+
+            if (duongDanAnh4.includes(ANH_GAU)) {
+                duongDanAnhMoi4 = duongDanAnh4.replace(ANH_GAU, ANH_MEO)
+            } else if (duongDanAnh4.includes(ANH_MEO)) {
+                duongDanAnhMoi4 = duongDanAnh4.replace(ANH_MEO, ANH_KHI)
+            } else {
+                duongDanAnhMoi4 = duongDanAnh4.replace(ANH_KHI, ANH_GAU)
+            }
+            document.getElementById("hinh4").src = duongDanAnhMoi4;
+
+            kiemTra();
+        }
+
+
+        function doiHinh5() {
+            var duongDanAnh5 = document.getElementById("hinh5").src;
+            var duongDanAnhMoi5;
+
+            if (duongDanAnh5.includes(ANH_GAU)) {
+                duongDanAnhMoi5 = duongDanAnh5.replace(ANH_GAU, ANH_MEO);
+            } else if (duongDanAnh5.includes(ANH_MEO)) {
+                duongDanAnhMoi5 = duongDanAnh5.replace(ANH_MEO, ANH_KHI)
+            } else {
+                duongDanAnhMoi5 = duongDanAnh5.replace(ANH_KHI, ANH_GAU)
+            }
+            document.getElementById("hinh5").src = duongDanAnhMoi5;
+
+            kiemTra();
+        }
+
+        function kiemTra() {
+            // Kiểm tra hình đầu tiên là hình mèo/gấu/khỉ
+            // Gán tên loại hình cho 1 biến
+            var duongDanAnh1 = document.getElementById("hinh1").src;
+            var loaiAnh;
+
+            if(duongDanAnh1.includes(ANH_MEO)) {
+                loaiAnh = ANH_MEO
+            } else if(duongDanAnh1.includes(ANH_GAU)) {
+                loaiAnh = ANH_GAU
+            } else {
+                loaiAnh = ANH_KHI
+            }
+
+            // Lặp qua các ảnh còn lại, nếu có ảnh khác loại thì dừng vòng lặp và thay đổi flag thành false
+            var flag = true;
+
+            for(var i = 2; i <= 5; i++) {
+                var duongDanAnh = document.getElementById("hinh" + i).src;
+
+                if(!duongDanAnh.includes(loaiAnh)) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            var khung = document.getElementById("khung")
+
+            if(flag) {
+                khung.classList.add("success")
+            } else {
+                khung.classList.remove("success")
+            }
+
+            // var duongDanAnh1 = document.getElementById("hinh1").src;
+            // var duongDanAnh2 = document.getElementById("hinh2").src;
+            // var duongDanAnh3 = document.getElementById("hinh3").src;
+            // var duongDanAnh4 = document.getElementById("hinh4").src;
+            // var duongDanAnh5 = document.getElementById("hinh5").src;
+
+            // if(
+            //     (
+            //         duongDanAnh1.includes(ANH_MEO)
+            //         && duongDanAnh2.includes(ANH_MEO)
+            //         && duongDanAnh3.includes(ANH_MEO)
+            //         && duongDanAnh4.includes(ANH_MEO)
+            //         && duongDanAnh5.includes(ANH_MEO)
+            //     )
+            //     || (
+            //         duongDanAnh1.includes(ANH_GAU)
+            //         && duongDanAnh2.includes(ANH_GAU)
+            //         && duongDanAnh3.includes(ANH_GAU)
+            //         && duongDanAnh4.includes(ANH_GAU)
+            //         && duongDanAnh5.includes(ANH_GAU)
+            //     )     
+            //     || (
+            //         duongDanAnh1.includes(ANH_KHI)
+            //         && duongDanAnh2.includes(ANH_KHI)
+            //         && duongDanAnh3.includes(ANH_KHI)
+            //         && duongDanAnh4.includes(ANH_KHI)
+            //         && duongDanAnh5.includes(ANH_KHI)
+            //     )
+            // ) {
+            //     khung.classList.add("success")
+            // } else {
+            //     khung.classList.remove("success")
+            // }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
