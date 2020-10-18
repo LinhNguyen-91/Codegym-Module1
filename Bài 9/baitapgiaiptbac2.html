@@ -7,23 +7,71 @@
     <title>Document</title>
     <style>
         input {
-            width: 20px;
+            width: 25px;
+            height: 25px;
+            border-radius: 20px;
+            background-color: blueviolet;
+            border: blueviolet;
+            padding-left: 5px;
+               
         }
-        h2{ color: blue;}
+        button {
+            width: 60px;
+            height: 25px;
+            border-radius: 20px;
+            background-color: blueviolet;
+            border: blueviolet;
+        }
+        h2{ color: blue;
+        font-style: oblique;
+        font-size: 25px;
+        }
         h3{ color: red;}
+        .giaipt {background-color:yellowgreen;
+        width: 370px;
+        height: 230px;
+        margin: auto;
+        border-color: red;
+        border-style: solid;
+        border-width: 5px;
+        padding-bottom: 30px;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 20px ;
+        }
+        .nhapdulieu {
+            margin: 20px 60px 20px 70px;
+            font-size: 25px;
+            font-weight: 900;
+            font-style: italic;
+           
+        }
+        .nutbam {
+            padding-left: 50px;
+          
+           
+        }
+
     </style>
 </head>
 
 <body>
+    <div class = "giaipt">
     <h2>GIẢI PHƯƠNG TRÌNH BẬC HAI</h2>
     <form>
+        <div class ="nhapdulieu">
         <input id="nhapa" type="text">x <sup>2</sup> +
         <input id="nhapb" type="text">x +
         <input id="nhapc" type="text"> = 0<br><br>
-        <button type="button" onclick="giaiPT()">Giải PT</button>
+        <div class="nutbam">
+        <button type="button" onclick="giaiPT()">Giải Pt</button>
         <input type="reset" style="width: 60px;">
+        </div>
+        </div>
     </form>
     <h3 id="ketqua"></h3>
+    </div>
     <script>
         function giaiPT() {
             var nhapSoa = +document.getElementById("nhapa").value;
