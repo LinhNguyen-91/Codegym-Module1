@@ -21,8 +21,8 @@
             var i;
             var giaiThua = 1;
 
-            for (i = 1; i <= nhapSo; i++) {
-                giaiThua = giaiThua * i;
+            for (i = nhapSo; i > 0; i--) {
+                giaiThua *= i;
             }
 
             document.getElementById("ketqua").innerHTML = giaiThua

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var soThuNhat = 0
+        var soThuHai = 1
+        var soMoi ;
+        var tong=soThuNhat+soThuHai
+        for (let i = 1; i <= 18; i++) {
+            soMoi = soThuNhat + soThuHai
+            soThuNhat = soThuHai
+            soThuHai = soMoi
+            tong+=soMoi
+        }
+        document.write(tong)
+    </script>
+</body>
+
+</html>
