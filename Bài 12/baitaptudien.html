@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>TỪ ĐIỂN ANH VIỆT</h3>
+    <form>
+        Nhập từ tiếng Anh :
+        <input id="nhaptu" type="text"> <br> <br>
+        <button type="button" onclick="traTu()"> Dịch </button>
+        <input type="reset">
+        
+        <h4>Dịch nghĩa : <span id="ketqua"></span></h4>
+    </form>
+    <script>
+        function traTu() {
+            var nhapTu = document.getElementById("nhaptu").value;
+            var tiengAnh = ['hello', 'bye', 'left', 'right'];
+            var tiengViet = ['xin chào', 'tạm biệt', 'bên trái', 'bên phải'];
+
+            for (var i = 0; i < tiengAnh.length; i++) {
+                if (nhapTu == tiengAnh[i]) {
+                    document.getElementById("ketqua").innerHTML = tiengViet[i];
+                    break;
+                } else
+                    document.getElementById("ketqua").innerHTML = 'không tìm thấy nghĩa';
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
