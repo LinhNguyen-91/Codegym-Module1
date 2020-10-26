@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var soNguyen = [1, 14, 12, 4, 18, 66, 44, 88, 7, 5]
+        var v = +prompt('Nhập số nguyên :');
+        var chiSo = soNguyen.indexOf(v)
+
+        if (chiSo >= 0) {
+            soNguyen.splice(chiSo, 1)
+            soNguyen.push(0)
+        }
+
+        document.write(soNguyen);
+
+    </script>
+</body>
+
+</html>
