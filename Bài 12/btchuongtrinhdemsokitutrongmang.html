@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h2>CHƯƠNG TRÌNH ĐẾM KÍ TỰ SỐ TRONG CHUỖI</h2>
+        Nhập chuỗi :
+        <input id="nhapchuoi" type="text" onkeyup="demTu()">
+        Chuỗi có
+        <input id="ketqua" type="text"> kí tự số
+    </form>
+    <script>
+        function demTu() {
+            var nhapChuoi = document.getElementById("nhapchuoi").value;
+            var kiTuSo = '0, 1, 2, 3, 4, 5, 6, 7, 8, 9';
+            var mang = [];
+            mang = nhapChuoi.split("");
+            var dem = 0
+
+            for (let i = 0; i < mang.length; i++) {
+                if (kiTuSo.indexOf(nhapChuoi[i]) >= 0)
+                    dem++;
+            }
+            document.getElementById("ketqua").value = dem;
+
+        }
+    </script>
+
+
+</body>
+
+</html>
