@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <h2>CHƯƠNG TRÌNH ĐẾM SỐ NGUYÊN ÂM TRONG CHUỖI</h2>
+        Nhập chuỗi :
+        <input id="nhapchuoi" type="text" onkeyup="demTu()">
+        Chuỗi có
+        <input id="ketqua" type="text"> số nguyên âm 
+    </form>
+    <script>
+        function demTu() {
+            var nhapChuoi = document.getElementById("nhapchuoi").value;
+            const NGUYEN_AM = 'a,e,i,o,u,y,A,E,I,O,U,Y';
+            var dem = 0;
+
+            for (let i = 0; i < nhapChuoi.length; i++) {
+                if (NGUYEN_AM.indexOf(nhapChuoi[i]) >= 0)
+                    dem++;
+            }
+            document.getElementById("ketqua").value = dem
+        }
+    </script>
+</body>
+</html>
