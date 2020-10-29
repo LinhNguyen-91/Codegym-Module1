@@ -16,11 +16,11 @@
     <script>
         function demTu() {
             var nhapChuoi = document.getElementById("nhapchuoi").value;
-            const NGUYEN_AM = 'a,e,i,o,u,y,A,E,I,O,U,Y';
+            const NGUYEN_AM = 'a,e,i,o,u,y';
             var dem = 0;
 
             for (let i = 0; i < nhapChuoi.length; i++) {
-                if (NGUYEN_AM.indexOf(nhapChuoi[i]) >= 0)
+                if (NGUYEN_AM.indexOf(nhapChuoi[i].toLowerCase()) >= 0)
                     dem++;
             }
             document.getElementById("ketqua").value = dem
