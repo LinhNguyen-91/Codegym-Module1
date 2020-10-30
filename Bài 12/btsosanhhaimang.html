@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var mang1 = [1, 2, 5];
+        var mang2 = [1, 2, 3];
+        var i;
+        var j;
+        var ketQua;
+
+        if (mang1.length == mang2.length) {
+            for (i = 0, j = 0; i <= mang1.length - 1, j <= mang2.length - 1; i++, j++)
+                if (mang1[i] == mang2[j])
+                    ketQua = 'Hai mảng bằng nhau';
+                else
+                    ketQua = 'Hai mảng không bằng nhau';
+        } else {
+            ketQua = 'Hai mảng không bằng nhau';
+
+        }
+        document.write(ketQua);
+    </script>
+</body>
+
+</html>

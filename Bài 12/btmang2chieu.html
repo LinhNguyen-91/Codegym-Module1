@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var mang = [
+            [9, 2, 5],
+            [4, 3, 7],
+            [6, 8, 1],
+        ];
+        var mang2 = [];
+
+        for (var i = 0; i < mang.length; i++) {
+            for (var j = 0; j < mang[i].length; j++) {
+                mang2.push(mang[i][j])
+            }
+
+        }
+        mang2.sort(function(a,b){
+        return a-b
+        })
+        for (var i = 0; i < mang.length; i++) {
+            for (var j = 0; j < mang[i].length; j++) {
+              let chiSo = 3*i+j
+              mang[i][j]=mang2[chiSo]
+
+            }
+
+        }
+    
+        console.log(mang)
+    
+    </script>
+</body>
+
+</html>
