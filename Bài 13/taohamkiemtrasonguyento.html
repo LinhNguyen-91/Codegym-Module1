@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function kiemTraCacSoNguyenTo(a) {
+            var kiemTra = true;
+            if (a < 2) {
+                kiemTra = false;
+            } else {
+                for (var i = 2; i <= Math.sqrt(a); i++)
+                    if (a % i == 0) {
+                        kiemTra = false
+                        break;
+                    }
+            }
+            return kiemTra;
+        }
+
+        function timCacSoNguyenToTrongKhoang(a, b) {
+            var mang = []
+            for (let i = a; i <= b; i++) {
+                if (kiemTraCacSoNguyenTo(i))
+                    mang.push(i)
+            }
+            return mang;
+        }
+
+document.write(timCacSoNguyenToTrongKhoang(2,10000))
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
