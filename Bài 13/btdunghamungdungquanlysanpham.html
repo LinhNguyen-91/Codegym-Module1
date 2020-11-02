@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        td {
+            border-collapse: collapse;
+        }
+
+        table tr:nth-child(even) {
+            background-color: lightseagreen;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: lightskyblue;
+        }
+
+        td {
+            width: 400px;
+            height: 30px;
+        }
+
+        th {
+            width: 50px;
+        }
+
+        button {
+            background-color: rgb(65, 199, 65);
+            color: white;
+            width: 70px;
+            height: 25px;
+            border: gold;
+            border-radius: 10px;
+        }
+
+        h4 {
+            color: red;
+        }
+
+        h1 {
+            color: rgb(12, 46, 160);
+        }
+
+        input {
+            background-color: palegoldenrod;
+            border: gray;
+            height: 20px;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .dautrang {
+            background-color: rgb(108, 177, 233);
+            height: 100px;
+            text-align: center;
+
+        }
+
+        .giuatrang1 {
+            background-color: rgb(146, 147, 230);
+            height: 100px;
+            text-align: center;
+        }
+
+        .tongthe {
+            background-color: peachpuff;
+            text-align: center;
+        }
+
+        .xulysukien {
+            background-color: rgb(65, 199, 65);
+            transition: .3s;
+            outline: 0;
+        }
+
+        .xulysukien:hover {
+           background-color:green;
+           outline:0;
+        }
+        .xulysukien:active{
+            background-color:red;
+            outline: 0;
+        }
+    </style>
+</head>
+
+<body onload="hienBang()">
+    <form>
+        <div class="tongthe">
+            <div class="dautrang">
+                <h1>Thêm Sản Phẩm Mới</h1>
+                <input type="text" id="them" placeholder="Sản Phẩm Mới">
+                <button type="button" onclick="themSanPham()" class="xulysukien">Thêm</button>
+            </div>
+            <div class="giuatrang1">
+                <h1>Chỉnh Sửa Tên Sản Phẩm</h1>
+                <input type="text" id="sua" placeholder="Sản Phẩm Chỉnh Sửa">
+                <button type="button" onclick="luuSanPham()" class="xulysukien">Lưu</button>
+                <input type="reset" class="xulysukien" value="Hủy" style="width: 60px; height: 25px;
+        border-radius: 10px; color: white;
+        ">
+            </div>
+            <div class="giuatrang2">
+                <h1>Danh Sách Các Sản Phẩm</h1>
+                <h4>Tổng có <span id="tongsanpham"></span> sản phẩm</h4>
+            </div>
+            <table id="bang">
+
+            </table>
+        </div>
+    </form>
+    <script>
+        var danhSachSanPham = ['Sony Xperia', 'Samsung Galaxy', 'Nokia6',
+            'Xiaomi Redmi Note 4', 'Apple iPhone 6S', 'Xiaomi Mi 5s Plus',
+            'Apple iPhone 8 Plus', 'Fujitsu F-04E', 'Oppo A71']
+
+        function hienDanhSachSanPham() {
+            var bang = ``;
+
+            for (let i = 0; i <= danhSachSanPham.length - 1; i++) {
+                bang += `<tr>
+               <th> ${i + 1} <th>
+                    <td>${danhSachSanPham[i]}</td>
+                    <td><button  type = "button" onclick = "suaSanPham(${i})" class="xulysukien">Sửa</button></td>
+                    <td><button  type = "button" onclick ="xoaSanPham(${i})" class="xulysukien">Xóa</button></td>
+               </tr>`
+            }
+
+            return bang;
+        }
+        function hienBang() {
+            document.getElementById("bang").innerHTML = hienDanhSachSanPham()
+            document.getElementById("tongsanpham").innerHTML = danhSachSanPham.length
+            
+        }
+        function themSanPham() {
+            var sanPham = document.getElementById("them").value;
+
+            if (sanPham.length > 0) {
+                danhSachSanPham.push(sanPham);
+            }
+            hienBang();
+        }
+        function xoaSanPham(chiso) {
+            for (let i = 0; i <= danhSachSanPham.length - 1; i++) {
+                if (chiso === i) {
+                    danhSachSanPham.splice(i, 1);
+                    break;
+                }
+            }
+            hienBang();
+        }
+        var kiemTra;
+        function suaSanPham(chiso) {
+            for (let i = 0; i <= danhSachSanPham.length; i++)
+                if (chiso == i) {
+                    document.getElementById("sua").value = danhSachSanPham[i];
+                    kiemTra = chiso;
+                    return;
+                }
+        }
+        function luuSanPham() {
+            for (let i = 0; i <= danhSachSanPham.length - 1; i++) {
+                if (kiemTra == i) {
+                    let sanPhamMoi = document.getElementById("sua").value;
+                    danhSachSanPham[i] = sanPhamMoi;
+                    break;
+                }
+            }
+            hienBang();
+        }
+    </script>
+</body>
+
+</html>

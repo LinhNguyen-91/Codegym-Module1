@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h2>TÌM CHÒM SAO</h2>
+        Sao
+        <input id="tensao" type="text" onkeyup="thucHien()">
+        nằm trong chòm
+        <input id="chomsao" type="text">
+    </form>
+    <script>
+        function thucHien() {
+            var tenSao = document.getElementById("tensao").value;
+            var mang = ['polaris', 'pldebaran', 'peneb', 'pega'
+                , 'altair', 'dubhe', 'regulus']
+            var mang2 = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra',
+                'Aquila', 'Ursa Major', 'Leo']
+            var ketQua;
+
+            function timChomSao(tenSao) {
+                for (let i = 0; i <= mang.length - 1; i++) {
+                    if (tenSao.toLowerCase() == mang[i].toLowerCase()) {
+                        ketQua = mang2[i];
+                        return ketQua;
+                    }
+                    ketQua = "Không tìm thấy"
+                    return ketQua;
+                }
+            }
+            document.getElementById("chomsao").value = timChomSao(tenSao);
+        }
+
+    </script>
+</body>
+
+</html>
