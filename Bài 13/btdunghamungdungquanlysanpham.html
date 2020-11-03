@@ -78,11 +78,12 @@
         }
 
         .xulysukien:hover {
-           background-color:green;
-           outline:0;
+            background-color: green;
+            outline: 0;
         }
-        .xulysukien:active{
-            background-color:red;
+
+        .xulysukien:active {
+            background-color: red;
             outline: 0;
         }
     </style>
@@ -135,42 +136,33 @@
         function hienBang() {
             document.getElementById("bang").innerHTML = hienDanhSachSanPham()
             document.getElementById("tongsanpham").innerHTML = danhSachSanPham.length
-            
+
         }
         function themSanPham() {
             var sanPham = document.getElementById("them").value;
 
-            if (sanPham.length > 0) {
-                danhSachSanPham.push(sanPham);
+            if (sanPham.length < 2) {
+                alert("Nhập trên 2 kí tự.");
+                return;
             }
+            danhSachSanPham.push(sanPham);
             hienBang();
         }
         function xoaSanPham(chiso) {
-            for (let i = 0; i <= danhSachSanPham.length - 1; i++) {
-                if (chiso === i) {
-                    danhSachSanPham.splice(i, 1);
-                    break;
-                }
-            }
+            let xacNhan = confirm("Bạn có muốn xóa sản phẩm?")
+            if (!xacNhan)
+                return;
+            danhSachSanPham.splice(chiso, 1);
             hienBang();
         }
         var kiemTra;
         function suaSanPham(chiso) {
-            for (let i = 0; i <= danhSachSanPham.length; i++)
-                if (chiso == i) {
-                    document.getElementById("sua").value = danhSachSanPham[i];
-                    kiemTra = chiso;
-                    return;
-                }
+            document.getElementById("sua").value = danhSachSanPham[chiso];
+            kiemTra = chiso;
         }
         function luuSanPham() {
-            for (let i = 0; i <= danhSachSanPham.length - 1; i++) {
-                if (kiemTra == i) {
-                    let sanPhamMoi = document.getElementById("sua").value;
-                    danhSachSanPham[i] = sanPhamMoi;
-                    break;
-                }
-            }
+            let sanPhamMoi = document.getElementById("sua").value;
+            danhSachSanPham[kiemTra] = sanPhamMoi;
             hienBang();
         }
     </script>
