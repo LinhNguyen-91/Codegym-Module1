@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class QuaTao {
+            weight;
+
+            constructor() {
+                this.weight = 10
+            }
+
+            decrease() {
+                if(this.weight > 0) {
+                    this.weight--;
+                }
+            }
+
+            isEmpty() {
+                return this.weight == 0;
+            }
+
+            getWeight() {
+               return this.weight; 
+            }
+        }
+
+        class ConNguoi {
+            name;
+            gender;
+            weight;
+            constructor(ten, gioiTinh, canNang){
+                this.name = ten;
+                this.gender = gioiTinh;
+                this.weight = canNang;
+            }
+
+            isMale() {
+                return this.gioiTinh;
+            }
+
+            setGender(gender) {
+                this.gender = gender;
+            }
+
+            checkApple(tao) {
+                return !tao.isEmpty();
+            }
+
+            eat(tao) {
+                if(this.checkApple(tao)) {
+                    this.weight++;
+                    tao.decrease();
+                }
+            }
+
+            say() {
+                console.log("Hello")
+            }
+
+            getName() {
+                return this.name;
+            }
+
+            setName(str) {
+                this.name = str;
+            }
+
+            getWeight() {
+                return this.weight;
+            }
+
+            setWeight(num) {
+                this.weight = num;
+            }
+        }
+
+        var duc = new ConNguoi("Duc", true, 60);
+        var quaTao1 = new QuaTao();
+        var quaTao2 = new QuaTao();
+        var quaTao3 = new QuaTao();
+
+        var roTao = [quaTao1,quaTao2,quaTao3];
+
+        for(let i = 1; i <= 10; i++) {
+            const index = Math.floor(Math.random() * 3)
+            duc.eat(roTao[index]);
+            console.log("Qua tao bi an: " + index)
+            console.log("Khoi luong nguoi: " + duc.getWeight())
+            console.log(`
+                Tao 1: ${quaTao1.getWeight()}
+                Tao 2: ${quaTao2.getWeight()}
+                Tao 3: ${quaTao3.getWeight()}
+            `)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h2>ĐIỆN THOẠI NOKIA</h2>
+        <button id="pin1" type="button">100%</button><br><br>
+        <button id="trangthai1" type="button" onclick="batTat1()">Tắt</button><br><br>
+        <input id="hienthi1" type="text">
+        <button type="button" onclick="nhanGui1(hienthi1.value,samsung)">Gửi</button>
+        <input type="reset" value="Xóa">
+        <br><br>
+        Bạn có <span id="thunhap1"></span> thư nháp
+        <button type="button" onclick="xemTinnhannhap1()">Xem</button> <br><br>
+        Bạn có <span id="danhan1"></span> thư đến
+        <button type="button" onclick="xemTinnhanden1()">Xem</button> <br><br>
+        Bạn có <span id="dagui1"></span> thư đã gửi
+        <button type="button" onclick="xemTinnhangui1()">Xem</button>
+        <br><br>
+    </form>
+    <form>
+        <h2>ĐIỆN THOẠI SAMSUNG</h2>
+        <button id="pin2" type="button">100%</button><br><br>
+        <button id="trangthai2" type="button" onclick="batTat2()">Tắt</button><br><br>
+        <input id="hienthi2" type="text">
+        <button type="button" onclick="nhanGui2(hienthi2.value,samsung)">Gửi</button>
+        <input type="reset" value="Xóa">
+        <br><br>
+        Bạn có <span id="thunhap2"></span>thư nháp
+        <button type="button" onclick="xemTinnhannhap2()">Xem</button> <br><br>
+        Bạn có <span id="danhan2"></span> thư đến
+        <button type="button" onclick="xemTinnhanden2()">Xem</button> <br><br>
+        Bạn có <span id="dagui2"></span> thư đã gửi
+        <button type="button" onclick="xemTinnhangui2()">Xem</button>
+    </form>
+
+    <script>
+        class DienThoai {
+            pin;
+            nhap;
+            hopthuden;
+            hopthudi;
+            trangthai;
+            constructor() {
+                this.pin = 100;
+                this.nhap = [];
+                this.hopthuden = [];
+                this.hopthudi = [];
+                this.trangthai = false;
+            }
+            battat() {
+              this.trangthai = !this.trangthai;
+            }
+
+            bat() {
+                this.trangthai = true;
+            }
+            tat() {
+                this.trangthai = false;
+            }
+            sacPin() {
+                if (this.pin < 100)
+                    this.pin++;
+            }
+            nhanTinnhan(tinNhan) {
+                this.hopthuden.push(tinNhan);
+
+            }
+            guiTinnhan(string, dienthoai2) {
+                if (this.trangthai) {
+                    var tinNhan = new Message(string)
+                    dienthoai2.nhanTinnhan(tinNhan);
+                    this.hopthudi.push(tinNhan);
+                    this.pin--
+
+                }
+            }
+            xemtinnhan(){
+                this.pin--;
+            }
+        
+
+        }
+        class Message {
+            noiDung;
+            ngayGui;
+            constructor(noiDung) {
+                this.noiDung = noiDung;
+                this.ngayGui = new Date();
+            }
+        }
+        var nokia = new DienThoai();
+        var samsung = new DienThoai();
+
+    
+        function batTat1(){
+            nokia.battat();
+            document.getElementById("trangthai1").innerText = 
+                nokia.battat() ? 'Tắt' : 'Bật';
+        }
+        function batTat2(){
+            samsung.battat();
+            document.getElementById("trangthai2").innerText = 
+                samsung.battat() ? 'Tắt' : 'Bật';
+        }
+        function nhanGui1(tinNhan, samsung) {
+            nokia.guiTinnhan(tinNhan, samsung);
+            document.getElementById("dagui1").innerHTML = nokia.hopthudi.length;
+            document.getElementById("hienthi1").value = ''
+            document.getElementById("danhan2").innerHTML = samsung.hopthuden.length;
+            document.getElementById("pin1").innerText = nokia.pin + '%'
+
+        }
+        function nhanGui2(tinNhan, nokia) {
+            nokia.guiTinnhan(tinNhan, nokia);
+            document.getElementById("dagui2").innerHTML = samsung.hopthudi.length;
+            document.getElementById("hienthi2").value = ''
+            document.getElementById("danhan1").innerHTML = nokia.hopthuden.length;
+            document.getElementById('pin2').innerText = samsung.pin + '%'
+
+        }
+        function xemTinnhangui1() {
+            document.getElementById("hienthi1").value = nokia.hopthudi[nokia.hopthudi.length - 1].noiDung;
+            nokia.xemtinnhan();
+            document.getElementById("pin1").innerText = nokia.pin + '%'
+        }
+        function xemTinnhangui2() {
+            document.getElementById("hienthi2").value = samsung.hopthudi[samsung.hopthudi.length - 1].noiDung;
+            samsung.xemtinnhan();
+            document.getElementById('pin2').innerText = samsung.pin + '%'
+
+
+        }
+        function xemTinnhanden1() {
+            document.getElementById("hienthi1").value = nokia.hopthuden[nokia.hopthuden.length - 1].noiDung;
+            nokia.xemtinnhan();
+            document.getElementById("pin1").innerText = nokia.pin + '%'
+
+        }
+        function xemTinnhanden2() {
+            document.getElementById("hienthi2").value = samsung.hopthuden[samsung.hopthuden.length - 1].noiDung;
+            samsung.xemtinnhan();
+            document.getElementById('pin2').innerText = samsung.pin + '%'
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+
+
+    </form>
+
+    <script>
+        class DienThoai {
+            pin;
+            nhap;
+            hopthuden;
+            hopthudi;
+            trangthai;
+            constructor() {
+                this.pin = 100;
+                this.nhap = [];
+                this.hopthuden = [];
+                this.hopthudi = [];
+                this.trangthai = false;
+            }
+    
+            bat(){
+                this.trangthai = true;
+            }
+            tat(){
+                this.trangthai = false;
+            }
+            nhanTinnhan(string) {
+                this.hopthuden.push(string);
+
+            }
+            guiTinnhan(string, dienthoai2) {
+                if(this.trangthai){
+                dienthoai2.nhanTinnhan(string);
+                this.hopthudi.push(string);
+                }
+            }
+        }
+        var nokia = new DienThoai();
+        var samsung = new DienThoai();
+        nokia.bat();
+        samsung.bat();
+        nokia.guiTinnhan('hello', samsung)
+        samsung.guiTinnhan('bạn tên gì',nokia)
+        nokia.guiTinnhan('mai đi chơi',samsung)
+        samsung.guiTinnhan('ngày kia lao động',nokia)
+        console.log(nokia)
+        console.log(samsung)
+    </script>
+</body>
+
+</html>

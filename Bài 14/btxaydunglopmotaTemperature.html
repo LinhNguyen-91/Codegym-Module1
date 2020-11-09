@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h3>ỨNG DỤNG CHUYỂN ĐỔI NHIỆT ĐỘ</h3>
+        Nhập độ C :
+        <input id="nhietdoC" type="number">
+        <button type="button" onclick="chuyenDoi(+nhietdoC.value)">Chuyển đổi</button>
+        <h3>Nhiêt độ F là : <span id="nhietdof"></span></h3>
+        <h3>Nhiệt độ Kenvin là : <span id="nhietdok"></span></h3>
+    </form>
+    <script>
+        class ChuyenNhietDo {
+            nhietdo;
+            constructor(nhietdo) {
+                this.nhietdo = nhietdo;
+            }
+            getNhietdo() {
+                return this.nhietdo;
+            }
+            getDOF() {
+                return (9/5) * this.nhietdo + 32;
+            }
+            getDOK() {
+                return this.nhietdo + 273.15;
+            }
+        }
+
+        function chuyenDoi(nhietdo) {
+            var chuyenNhietDo = new ChuyenNhietDo(nhietdo)
+            chuyenNhietDo.getNhietdo();
+
+            document.getElementById("nhietdof").innerHTML = chuyenNhietDo.getDOF();
+            document.getElementById("nhietdok").innerHTML = chuyenNhietDo.getDOK();
+        }
+    </script>
+</body>
+
+</html>

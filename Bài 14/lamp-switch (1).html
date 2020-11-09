@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img id="anhBongDen" src="./anh/lamp-off.svg" width="100" height="150" alt="">
+    <button id="congTac" onclick="batTat()">Bật</button>
+    <script>
+
+        class BongDen {
+            denSang;
+
+            constructor() {
+                this.denSang = false;
+            }
+        }
+
+        class CongTac {
+            bongDen;
+
+            ketNoiBongDen(bongDen) {
+                this.bongDen = bongDen;
+            }
+
+            batTat() {
+                this.bongDen.denSang = !this.bongDen.denSang
+            }
+
+            
+        }
+
+        var bongDen = new BongDen();
+
+        var congTac = new CongTac();
+
+        congTac.ketNoiBongDen(bongDen);
+
+        
+
+        function batTat() {
+            congTac.batTat();
+            document.getElementById("anhBongDen").src =
+                bongDen.denSang ? './anh/lamp-on.svg' : './anh/lamp-off.svg';
+            document.getElementById("congTac").innerText = 
+                bongDen.denSang ? 'Tắt' : 'Bật';
+        }
+    </script>
+</body>
+</html>

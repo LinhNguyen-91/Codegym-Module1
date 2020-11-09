@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <h3>ỨNG DỤNG TÍNH DIÊN TÍCH CHU VI HÌNH CHỮ NHẬT</h3>
+        <canvas id="vehinh" width="100" height="50"
+        style="border: 1px solid black"
+        ></canvas>
+        <br> <br>
+        Nhập chiều dài :
+        <input id="chieudai" type="number"> cm
+        <br><br>
+        Nhập chiều rộng :
+        <input id="chieurong" type="number"> cm
+        <button type="button" onclick="ketQua(+chieudai.value,+chieurong.value)">Tính</button>
+        <h3> Diện tích hình chữ nhật là : <span id="ketqua1"></span> cm</h3>
+        <h3>Chu vi hình chữ nhật là : <span id="ketqua2"></span> cm</h3>
+       
+    </form>
+    <script>
+        var HinhChuNhat = function (chieudai, chieurong) {
+            this.chieudai = chieudai;
+            this.chieurong = chieurong;
+
+            this.getchieudai = function () {
+                return this.chieudai;
+            }
+            this.getchieurong = function () {
+                return this.chieurong;
+            }
+            this.setchieudai = function () {
+                this.chieudai = chieudai;
+            }
+            this.setchieurong = function () {
+                this.chieurong = chieurong;
+            }
+
+            this.chuvi = function () {
+                return (this.chieudai + this.chieurong) * 2;
+            }
+            this.dientich = function () {
+                return this.chieudai * this.chieurong;
+            }
+        }
+
+        function ketQua(chieudai,chieurong) {
+            var hinhChuNhat = new HinhChuNhat(chieudai,chieurong)
+            hinhChuNhat.setchieudai();
+            hinhChuNhat.setchieurong();
+
+            document.getElementById("ketqua1").innerHTML = hinhChuNhat.dientich()
+            document.getElementById("ketqua2").innerHTML = hinhChuNhat.chuvi()
+
+        }
+        var veHinh = document.getElementById("vehinh");
+        var ctx = veHinh.getContext("2d");
+        ctx.fillRect(0, 0, 150, 100);
+    </script>
+</body>
+
+</html>
