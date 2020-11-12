@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="canvas1"
+      width="200"
+      height="200"
+      style="background-color: lavender"
+    ></canvas>
+
+    <canvas
+    id="canvas2"
+    width="400"
+    height="300"
+    style="background-color: lavender"
+  ></canvas>
+    
+    <script>
+      class Circle {
+        x; // number : Tọa độ x
+        y; // number : Tọa độ y
+        radius; // number : Bán kính hình tròn
+        color; // string : Màu nền
+
+        constructor(x, y, radius, color) {
+          this.x = x;
+          this.y = y;
+          this.radius = radius;
+          this.color = color;
+        }
+
+        getPerimeter() {
+          return 2 * this.radius * Math.PI;
+        }
+
+        getAreas() {
+          return this.radius * this.radius * Math.PI;
+        }
+
+        // Phương thức đối tượng hình tròn trên 1 canvas
+        // Tham số là đối tượng canvas
+        draw(canvas) {
+          var ctx = canvas.getContext("2d");
+          ctx.beginPath();
+          ctx.arc(100, 75, 50, 0.5 * Math.PI, 3.5 * Math.PI);
+          ctx.fillStyle = "red";
+          ctx.fill();
+        }
+      }
+
+      var hinhTron = new Circle(100, 100, 40, "red");
+
+      var canvas1 = document.getElementById("canvas1");
+      var canvas2 = document.getElementById("canvas2");
+
+      hinhTron.draw(canvas2)
+
+      // var c = document.getElementById("myCanvas"); // Trả về 1 đối tượng HTMl
+      // var ctx = c.getContext("2d");
+      // ctx.beginPath();
+      // ctx.arc(100, 75, 50, 0.5 * Math.PI, 3.5 * Math.PI);
+      // ctx.fillStyle = "red";
+      // ctx.fill();
+      // ctx.strokeStyle = "yellow";
+      // ctx.stroke();
+
+      // ctx.fillStyle = "blue"
+      // ctx.fillRect(100, 100, 100, 80)
+    </script>
+  </body>
+</html>

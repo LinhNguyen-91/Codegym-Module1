@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+
+
+    <style>
+        table {
+
+            border-collapse: collapse;
+
+
+        }
+
+        th {
+            background-color: rgb(75, 148, 197);
+            width: 300px;
+            height: 70px;
+            text-align: center;
+
+        }
+
+        td {
+            text-align: center;
+            width: 300px;
+            height: 70px;
+        }
+
+        table tr:nth-child(even) {
+            background-color: lightseagreen;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: lightskyblue;
+        }
+
+        button {
+            border-radius: 1rem;
+            width: 5rem;
+            height: 22px;
+            outline: 0;
+            border: red;
+            color: rgb(131, 30, 214);
+            cursor: pointer;
+            text-align: center;
+        }
+
+
+
+
+        .xulysukien {
+            background-color: rgb(28, 209, 28);
+            transition: .1s;
+            outline: 0;
+        }
+
+        .xulysukien:hover {
+            background-color: rgba(74, 182, 74, 0.925);
+            outline: 0;
+        }
+
+        .xulysukien:active {
+            background-color: rgb(52, 158, 52);
+            outline: 0;
+        }
+
+
+        .bang1 {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .bang2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bang2 table {
+            margin: auto
+        }
+
+        h2 {
+            color: rgb(189, 18, 18);
+        }
+
+        h3 {
+            color: blue;
+        }
+
+        h3:hover {
+            color: rgb(15, 15, 145);
+        }
+
+        h4 {
+            color: brown;
+        }
+
+        h4:hover {
+            color: rgb(243, 61, 61);
+        }
+
+        .tongthe {
+            background-color: rgb(66, 182, 202);
+            height: 800px;
+        }
+
+        input {
+            border-radius: 1em;
+            border: cadetblue;
+            height: 20px;
+            color: rgb(131, 30, 214);
+            background-color: khaki;
+            text-align: center;
+            outline: 0;
+            cursor: text;
+        }
+
+        select {
+            border-radius: 1rem;
+            color: rgb(20, 59, 59);
+            background-color: rgb(83, 196, 184);
+        }
+
+        h2:hover {
+            color: red;
+        }
+
+        input:hover {
+            background-color: rgb(243, 226, 77);
+            outline: 0;
+        }
+
+        input:active {
+            outline: 0;
+        }
+
+        td:hover {
+            color: chocolate;
+        }
+
+        th:hover {
+            color: rgb(56, 56, 201);
+        }
+
+        select:hover {
+            color: rgb(155, 27, 27);
+            background-color: rgb(109, 221, 221);
+        }
+    </style>
+</head>
+
+<body onload="hienBang()">
+    <div class='tongthe'>
+        <form>
+            <div class="bang1">
+                <h2>ỨNG DỤNG QUẢN LÝ SẢN PHẨM</h2>
+                <h3>Sửa/thêm sản phẩm mới</h3>
+                <input placeholder="Nhập tên sản phẩm" id='ten' type="text">
+                <input placeholder="Nhập giá sản phẩm" id='gia' type="number">
+                <input placeholder="Nhập năm sản xuất" id='nam' type="number"><br><br>
+                <button class="xulysukien" type="button"
+                    onclick="themSuaSanPham(ten.value,+gia.value,nam.value,chiso.value)" style="height: 25px;
+            width: 60px;border-radius: 1rem; border: red;">Lưu</button>
+                <input class="xulysukien" type="reset" style="height: 25px;
+            width: 60px;border-radius: 1rem; border: red; cursor: pointer;
+            ">
+            </div>
+            <div class='bang2'>
+                <input hidden id="chiso" type="number">
+                <h4>Tổng có <span id="tongsanpham"></span> sản phẩm</h4>
+
+                <div style="text-align: end; max-width: 700px;">
+                    ​<select onchange="doiTrang(sotrang.value)" id='sotrang'>
+
+                    </select>
+                    <input id='nhapdong' type="number" style="width: 40px;outline: 0;height: 15px;
+                    " min="1" max="20" onchange="thayDoiSoTrang(nhapdong.value)">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Giá sản phẩm</th>
+                                <th>Năm sản xuất</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bang">
+                        </tbody>
+                    </table>
+                </div>
+        </form>
+    </div>
+    </div>
+    <script>
+        class DienThoai {
+            tenSanPham;
+            giaSanPham;
+            namSanXuat;
+            constructor(tenSanPham, giaSanPham, namSanXuat) {
+                this.tenSanPham = tenSanPham;
+                this.giaSanPham = giaSanPham;
+                this.namSanXuat = namSanXuat;
+            }
+        }
+
+        function hienBang() {
+            document.getElementById("bang").innerHTML = trangSanPham();
+            document.getElementById("tongsanpham").innerHTML = dienThoai.length;
+            document.getElementById("sotrang").innerHTML = hienSoTrang();
+            document.getElementById("sotrang").value = trang;
+        }
+
+        function hienSoTrang() {
+            var hienTrang = ''
+            for (let i = 1; i <= Math.floor(dienThoai.length / soDong) + 1; i++) {
+                hienTrang += `
+                        <option value="${i}">Trang ${i} </option>
+                    `
+            }
+            return hienTrang;
+        }
+
+        function suaSanPham(chiso) {
+            document.getElementById("ten").value = dienThoai[chiso].tenSanPham;
+            document.getElementById("gia").value = dienThoai[chiso].giaSanPham;
+            document.getElementById("nam").value = dienThoai[chiso].namSanXuat;
+            document.getElementById("chiso").value = chiso;
+        }
+
+        function luuSanPham() {
+            let sanPhamMoi = document.getElementById("sua").value;
+            danhSachSanPham[kiemTra] = sanPhamMoi;
+            hienBang();
+        }
+
+        function themSuaSanPham(ten, gia, nam, chiso) {
+            if (chiso) {
+                dienThoai[chiso].tenSanPham = ten;
+                dienThoai[chiso].giaSanPham = gia;
+                dienThoai[chiso].namSanXuat = nam;
+
+            }
+            else {
+                var dienThoaiMoi = new DienThoai(ten, gia, nam);
+                if (dienThoaiMoi.tenSanPham.length > 1  && dienThoaiMoi.namSanXuat.length > 2)
+                    dienThoai.push(dienThoaiMoi);
+                else
+                    alert('Vui lòng nhập đủ thông tin')
+            }
+            hienBang();
+            document.getElementById('ten').value = ''
+            document.getElementById('gia').value = ''
+            document.getElementById('nam').value = ''
+            document.getElementById('chiso').value = ''
+        }
+        var trang = 1;
+        var soDong = 3;
+
+        function trangSanPham() {
+            var bang = '';
+            var chiSoPhanTuDau = (trang - 1) * soDong;
+            var chiSoPtCuoi = (trang * soDong - 1) < dienThoai.length - 1 ? (trang * soDong - 1) : dienThoai.length - 1;
+            for (let i = chiSoPhanTuDau; i <= chiSoPtCuoi; i++) {
+                bang += `<tr>
+                    <td>${i + 1}</td>
+                    <td>${dienThoai[i].tenSanPham}</td>
+                    <td>${dienThoai[i].giaSanPham.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                    <td>${dienThoai[i].namSanXuat}</td>
+                    <td>
+                        <button class = 'xulysukien' type = "button" onclick = "suaSanPham(${i})" >Sửa</button>
+                        <button class = 'xulysukien' type = "button" onclick ="xoaSanPham(${i})" >Xóa</button>
+                    </td>
+                </tr>`
+            }
+
+            return bang;
+        }
+
+        function xoaSanPham(chiso) {
+            let xacNhan = confirm("Bạn có muốn xóa sản phẩm?")
+            if (!xacNhan)
+                return;
+            dienThoai.splice(chiso, 1);
+            hienBang();
+        }
+
+        function doiTrang(sotrang) {
+            trang = sotrang
+            hienBang();
+        }
+
+        function thayDoiSoTrang(num) {
+            if (!num || num <= 0) return;
+            soDong = num;
+            hienBang();
+        }
+
+        var dienThoai = [
+            new DienThoai('Iphone 6', 8000000, 2016),
+            new DienThoai('Note 9', 10000000, 2018),
+            new DienThoai('Nokia 6', 6000000, 2017),
+            new DienThoai('Oppo 3', 3000000, 2016),
+            new DienThoai('Realme', 4000000, 2017),
+            new DienThoai('Iphone 7', 900000, 2017),
+            new DienThoai('Sam sung J7', 5000000, 2014)
+        ]
+
+
+
+        //function hienDanhSachSanPham() {
+        // var bang = '';
+
+        //  for (let i = 0; i <= dienThoai.length - 1; i++) {
+        //  bang += `<tr>
+        //          <td>${i + 1}</td>
+        //            <td>${dienThoai[i].tenSanPham}</td>
+        //             <td>${dienThoai[i].giaSanPham}</td>
+        //            <td>${dienThoai[i].namSanXuat}</td>
+        //            <td>
+        //                 <button class = 'xulysukien' type = "button" onclick = "suaSanPham(${i})" >Sửa</button>
+        //              <button class = 'xulysukien' type = "button" onclick ="xoaSanPham(${i})" >Xóa</button>
+        //             </td>
+        //       </tr>`
+        // }
+
+        // return bang;
+        // }
+
+    </script>
+
+</body>
+
+</html>
