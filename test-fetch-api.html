@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="postData()">Ung Ho</button>
+
+
+    <div id="danh-sach-ung-ho">
+        
+    </div>
+
+    <script>
+        const DONATE_API = "https://ung-ho-mien-trung-db.herokuapp.com/donates"
+
+        var thongTinUngHo = {
+            ten: "Nguyen Van Tuan",
+            diachi: "20 Lý Thường Kiệt - Đông Hà",
+            sodt: "0935418749",
+            sotien: "5000000",
+            sotk: "0161001232112"
+        }
+
+        function getData() {
+            fetch(DONATE_API)
+            .then(res => res.json())
+            .then(res => inDanhSachUngHo(res))
+        }
+
+        function inDanhSachUngHo(mang) {
+            var noiDung = ``;
+            for(let i in mang.reverse()) {
+                noiDung += `
+                <div class="ung-ho">
+                    <h5>${mang[i].ten}</h5>
+                    <p>${mang[i].sotien}</p>
+                </div>
+                `
+            }
+
+            document.getElementById("danh-sach-ung-ho").innerHTML = noiDung
+        }
+
+        function postData() {
+            console.log(thongTinUngHo)
+            
+            fetch(DONATE_API, {
+                method: 'post',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(thongTinUngHo)
+            }).then(
+                res => {
+                    alert("Ung ho thanh cong")
+                    getData();
+                }
+            );
+        }
+
+        getData();
+    </script>
+</body>
+</html>

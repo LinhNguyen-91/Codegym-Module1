@@ -5,29 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<style>
-    h2 {color: red;}
-    h3 {color: blue;}
-</style>
+    <style>
+        h2 {
+            color: red;
+        }
+
+        h3 {
+            color: blue;
+        }
+    </style>
 </head>
 
 <body>
+    <form>
     <h2>ỨNG DỤNG KIỂM TRA NĂM NHUẬN</h2>
-    <input id="soNam" type="number">
-    <button onclick="namNhuan()">Kiểm Tra</button>
-    <h3>Kết quả:<span id="ketqua"></span></h3>
+    <input placeholder="Nhập năm là số nguyên" id="soNam" type="number">
+    <button type="button" onclick="inKetQua(+soNam.value)">Kiểm Tra</button>
+    <input type="reset">
+    <h3>Kết quả: <span id="ketqua"></span></h3>
+    </form>
     <script>
-        function namNhuan() {
-            var nhapNam = document.getElementById("soNam").value;
-            if (nhapNam % 400 == 0)
-                document.getElementById("ketqua").innerHTML = "Nhuận";
-            else if (nhapNam % 100 == 0)
-                document.getElementById("ketqua").innerHTML = "Không Nhuận";
-            else if (nhapNam % 4 == 0)
-                document.getElementById("ketqua").innerHTML = "Nhuận";
-            else
-                document.getElementById("ketqua").innerHTML = "Không Nhuận";
-
+        function namNhuan(nam) {
+            if (nam % 400 == 0)
+                return true;
+            if (nam % 100 == 0)
+                return false;
+            if (nam % 4 == 0)
+                return true;
+            return false;
+        }
+        function inKetQua(nam) {
+            document.getElementById('ketqua').innerHTML = namNhuan(nam);
         }
     </script>
 </body>

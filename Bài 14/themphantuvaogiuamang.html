@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var mang = [1, 2, 3, 4, 5, 6];
+        function themPhanTuVaoMang(mang, giaTri, viTri) {
+            if (viTri > mang.length || viTri < 0)
+                return mang;
+            for (let i = 0; mang.length - 1 - i >= viTri; i++) {
+                mang[mang.length - i] = mang[mang.length - 1 - i];
+            }
+            mang[viTri] = giaTri;
+            return mang;
+        }
+        document.write(themPhanTuVaoMang(mang, 3, 2));
+    </script>
+</body>
+
+</html>

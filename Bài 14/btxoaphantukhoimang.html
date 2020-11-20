@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var mang = [1, 2, 3, 4, 5, 6];
+        function xoaPhanTuKhoiMang(mang, viTri) {
+            if (viTri > mang.length -1|| viTri < 0)
+                return mang;
+            for (let i = viTri + 1; i < mang.length; i++) {
+                mang[i - 1] = mang[i];
+            }
+            mang.pop();
+            return mang;
+        }
+        document.write(xoaPhanTuKhoiMang(mang, 1.3));
+    </script>
+</body>
+
+</html>

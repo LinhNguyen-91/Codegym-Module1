@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isLeapYear(nam) {
+            if (nam % 400 == 0)
+                return true;
+
+            if (nam % 100 == 0)
+                return false;
+
+            if (nam % 4 == 0)
+                return true;
+
+            return false;
+        }
+        console.log(isLeapYear(1900));
+        console.log(isLeapYear(2000));
+        console.log(isLeapYear(1996));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,315 @@
+   *{
+	margin: 0 auto;
+	padding: 0;
+	}
+
+	body{
+
+		margin: 0;
+		font-family: arial, "Helvetica Neue", Helvetica, sans-serif;
+		font-size: 17px;
+		color:black;
+		line-height: 1.6;
+		max-width: 1400px;
+		background: #F3EEE8;
+		
+		margin: 0 auto;
+
+	}
+@media only screen and (min-width: 320px) and (max-width: 860px) {...}
+
+	#container1{
+		width: 1400px;
+		margin-left: 10px;
+	}
+
+	#showcase {
+		width: 1400px;
+		height: 80px;
+		background: #CFDC89;
+		margin-top: 10px;	
+	}
+
+
+	#logo{
+		width: 400px;
+		float: left;
+
+	}
+	#logo img{
+		margin-left: 20px;}
+
+
+	#menu2{
+		width: 1000px;
+		float: right;
+		background-image: linear-gradient(to right, rgba(88,37,123,0), 
+  rgba(88,37,123,1)); }	
+
+	#menu2 ul li{
+		list-style: none;
+	    float: left;
+	    padding-left: 30px;
+	    line-height: 80px;
+	}
+
+	#menu2 a{
+		text-decoration: none;
+		border: 1px solid #ABA58B;
+	   	border-radius: 5px;
+	   	border-color: #EDCC8A;
+	    padding: 4px 4px;
+	    color: #63437A;
+	}
+	#menu2 a:hover{
+		color:#457CB2;
+		transition: 0.3s;
+		border-color: #7EF14C;
+		cursor: wait;
+	}
+
+
+
+	#benner{
+		width: 1400px;
+		height: 530px;
+
+	}
+
+	#formdangky {
+		display: none;
+		position: absolute;
+		float: right;
+		margin-top: 17px;
+		margin-left: 360px;
+
+		z-index: 1000	
+
+	}
+
+	#slide{
+		width: 800px;
+		height: 500px;
+		float: left;
+	}
+
+	#text1{
+		width: 1400px;
+		height: 30px;
+		background-image: linear-gradient(to right, rgba(88,37,123,0), 
+  		rgba(88,37,123,1)); 	
+		float: left;
+		
+	}
+
+	#text1 marquee{
+		color: #0024EE;
+	}
+
+	
+
+	#ngayGio {
+		display: inline-block;
+	}
+	#ungHo{
+		width: 300px;
+		height:500px; 
+		float:left;
+		text-align: center;
+
+	}
+
+	#ungHo button{
+		margin-top: 20px;
+		width: 250px;
+		height: 50px;
+		border-radius: 10px;
+		background: #3687E7;
+		color: white;
+		font-size: 20px;
+		cursor: pointer;
+		border-right-color: red; 
+		outline: none;
+		cursor: wait;
+
+	}
+	#ungHo button a{
+		text-decoration: none;
+		color: white;
+		cursor: wait;
+	}
+
+	#danhSach{
+		background: #F3EEE8;
+		width: 300px;
+		height: 500px;
+		float: left;
+	}
+
+	#danh_sanh_ung_ho{
+		width: 300px;
+		height: 450px;
+		overflow: auto;
+		
+		
+	}
+	#ketqua{
+		font-size: 13px;
+		padding-left: 5px;
+		color: #3D76E2;
+	}
+
+	#tongsotien{
+		width: 300px;
+		height: 50px;
+		
+	}
+	#tongtien{
+		font-size: 25px;
+		color: red;
+
+	}
+
+	#conten{
+		width: 1400px;
+		height: 400px;
+		background: #B7FCFB;
+		margin-top: 3px;
+		
+	}
+	#bentrai{
+		width: 1000px;
+		height: 400px;
+		background-color: #F3EEE8;
+		float: left;
+	}
+	.
+	.img-wrapper{
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 330px;
+		height: 100px;
+		overflow: hidden;
+	}
+	.img-wrapper img{
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 330px;
+		height: 250px;
+
+	}
+	.owl-carousel{
+		width: 1000px;
+		height: 400px;
+	}
+	.khoi-anh{
+		
+		width: 300px;
+		height: 400px;
+		margin-top: 10px;
+	}
+	.title{
+		padding-left: 10px;
+		padding-right: 10px;
+
+	}
+
+
+	#ben-phai{
+		width: 400px;
+		height: 400px;
+		float: left;
+		background-color: #F3EEE8;
+	}
+
+	#ben-phai source{
+		width: 380px;
+		height: 380px;
+		margin: 0 auto;
+	}
+
+	#su_kien{
+		width: 1500px;
+		height: 500px;
+		background-color: #F2EEE9;
+	}
+	#noi_dung_su_kien{
+		width: 600px;
+		height: 500px;
+		float: left;
+		padding-left: 5px;
+
+		
+		border: 0.5px  dashed #A3A5A4;
+	}
+	#noi_dung_su_kien p{
+		text-indent: 30px;
+		font-size: 13px;
+	}
+	#noi_dung_su_kien h3{
+		color: #439AA3;
+	}
+
+	#hinh_anh_su-kien{
+		width: 900px;
+		height: 500px;
+		float: left;
+	}
+	#hinh_anh_su-kien img{
+	margin: 50px 90px;
+	border-radius: 40px;
+
+	}
+
+	footer {
+		margin-top: 30px;
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+}
+
+
+
+	
+	/*#showcase{
+		background-image: url('anhdongha.jpg');
+		background-size: cover;
+		background-position: center;
+		height: 100vh;
+		justify-content: center;
+		align-items: center;
+		padding: 0 20px;
+		display: flex;
+		flex-direction: column; 
+
+	}
+
+	#showcase h1{
+		font-size: 40px;
+		color: #2224A9;
+		margin-bottom: 80px;
+	}
+
+	#showcase p{
+		font-size: 18px;
+		color: white;
+		
+	}
+	#showcase .button{
+		font-size: 18px;
+		text-decoration: none;
+		color: white;
+		border: blue 1px solid;
+		padding: 10px 20px;
+		border-radius: 10px;
+		background-color: #215BB2;
+	}
+
+	#showcase .ungho{
+		margin-top: 5px;
+	}
+
+
+
+

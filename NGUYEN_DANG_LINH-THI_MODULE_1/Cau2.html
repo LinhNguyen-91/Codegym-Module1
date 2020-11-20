@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function tryRemoveFromArray(mang, index) {
+            if (index > mang.length - 1 || index < 0) {
+                return mang;
+            }
+            mang.splice(index, 1);
+            return mang;
+        }
+
+        var mang = [12, 6, 3, 7, 21, 5, 7];
+        console.log(tryRemoveFromArray(mang, 2));
+
+        var mang = [12, 6, 3, 7, 21, 5, 7];
+        console.log(tryRemoveFromArray(mang, 0));
+
+        var mang = [12, 6, 3, 7, 21, 5, 7];
+        console.log(tryRemoveFromArray(mang, 7));
+
+        var mang = [12, 6, 3, 7, 21, 5, 7];
+        console.log(tryRemoveFromArray(mang, -2));
+        
+    </script>
+</body>
+
+</html>
